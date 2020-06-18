@@ -19,6 +19,7 @@
 
     <modules>
         <module>tenant-demo</module>
+        <module>annotation</module>
     </modules>
 
     <properties>
