@@ -25,7 +25,7 @@ public class UserController {
     @PostMapping
     @Transactional
     public ResponseEntity saveUser(@RequestBody User user) {
-        user.getGroups().forEach(groups -> groups.getUsers().add(user));
+//        user.getGroups().forEach(groups -> groups.getUsers().add(user));
         repository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
