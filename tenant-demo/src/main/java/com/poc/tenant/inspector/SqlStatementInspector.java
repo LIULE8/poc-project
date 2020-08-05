@@ -11,7 +11,6 @@ import org.springframework.util.StringUtils;
 public class SqlStatementInspector implements StatementInspector {
   @Override
   public String inspect(String sql) {
-    log.info("before: " + sql);
     if (StringUtils.hasText(sql) && sql.contains(SqlConstant.FIND_TENANT_ID_WHERE)) {
       // todo 拿 user info
       String newTenantId = "789";
@@ -20,7 +19,6 @@ public class SqlStatementInspector implements StatementInspector {
       }
       String where = String.format("%s = %s", SqlConstant.TENANT_ID, newTenantId);
       sql = sql.replaceAll(SqlConstant.FIND_TENANT_ID_WHERE, where);
-      log.warn("after: " + sql);
     }
     return sql;
   }

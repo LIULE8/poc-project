@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -14,9 +15,10 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@Table(name = "t_user")
 @AllArgsConstructor
 @NoArgsConstructor
-@Where(clause = SqlConstant.FIND_TENANT_ID_WHERE)
+//@Where(clause = SqlConstant.FIND_TENANT_ID_WHERE)
 public class User extends IDLog {
 
   @Id
@@ -33,6 +35,7 @@ public class User extends IDLog {
       fetch = FetchType.LAZY,
       mappedBy = "user",
       cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+//  @BatchSize(size = 2)
   private Set<Address> addresses;
 
   @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)

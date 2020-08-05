@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@Table(name = "t_address")
 @AllArgsConstructor
 @NoArgsConstructor
 //@Where(clause = SqlConstant.FIND_TENANT_ID_WHERE)

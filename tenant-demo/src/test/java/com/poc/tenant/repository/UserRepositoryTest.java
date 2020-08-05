@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
@@ -142,6 +143,15 @@ public class UserRepositoryTest {
     List<User> all = userRepository.findByName("%s%");
     log.info("1010: " + all.size());
     log.info("1010: " + all);
+  }
+
+  @Test
+  @Transactional
+  public void should_11() {
+    List<User> all = userRepository.findAll();
+    Set<Address> addresses = all.get(0).getAddresses();
+    Set<Address> addresses1 = all.get(1).getAddresses();
+    System.out.println(all.size());
   }
 
 }
