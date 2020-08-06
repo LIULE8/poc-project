@@ -42,10 +42,11 @@
         </dependency>
 
         <!--druid-->
+        <!-- druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.1.16</version>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.17</version>
         </dependency>
 
         <dependency>
