@@ -23,7 +23,7 @@ public class CASTest {
     private static void casCounter() {
         for (int i = 0; i < 2; i++) {
             new Thread(() -> {
-                //每个线程让count自增 100000 次
+                //每个线程让count自增 100 次
                 for (int i1 = 0; i1 < times; i1++) {
                     try {
                         TimeUnit.MILLISECONDS.sleep(10);
@@ -42,7 +42,7 @@ public class CASTest {
     private static void safeCounter() {
         for (int i = 0; i < threadNums; i++) {
             new Thread(() -> {
-                //每个线程让count自增 100000 次
+                //每个线程让count自增 100 次
                 for (int i1 = 0; i1 < times; i1++) {
                     try {
                         TimeUnit.MILLISECONDS.sleep(10);
@@ -63,7 +63,7 @@ public class CASTest {
     private static void notSafeCounter() {
         for (int i = 0; i < threadNums; i++) {
             new Thread(() -> {
-                //每个线程让 count 自增 100000 次
+                //每个线程让 count 自增 100 次
                 for (int i1 = 0; i1 < times; i1++) {
                     try {
                         TimeUnit.MILLISECONDS.sleep(10);
