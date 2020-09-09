@@ -1,6 +1,10 @@
 package com.leo.thread.cas;
 
 
+import lombok.SneakyThrows;
+
+import java.util.concurrent.TimeUnit;
+
 public class CASTest {
     private static int not_safe_count = 0;
     private static int safe_count = 0;
@@ -12,14 +16,10 @@ public class CASTest {
         safeCounter();
     }
 
+    @SneakyThrows
     private static void safeCounter() {
         for (int i = 0; i < threadNums; i++) {
             new Thread(() -> {
-                try {
-                    Thread.sleep(10);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
                 //每个线程让count自增 100000 次
                 for (int i1 = 0; i1 < times; i1++) {
                     synchronized (CASTest.class) {
@@ -28,14 +28,11 @@ public class CASTest {
                 }
             }).start();
         }
-        try {
-            Thread.sleep(2000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        TimeUnit.SECONDS.sleep(1);
         System.out.println(safe_count); //等于 times * threadNums
     }
 
+    @SneakyThrows
     private static void notSafeCounter() {
         for (int i = 0; i < threadNums; i++) {
             new Thread(() -> {
@@ -45,11 +42,7 @@ public class CASTest {
                 }
             }).start();
         }
-        try {
-            Thread.sleep(2000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        TimeUnit.SECONDS.sleep(1);
         System.out.println(not_safe_count); // 不等于 times * threadNums
     }
 }
