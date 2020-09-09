@@ -1,16 +1,13 @@
 package com.poc.tenant.repository;
 
-import com.poc.tenant.model.Company;
+import com.leo.model.tenant.entity.Company;
+import com.leo.model.tenant.repository.CompanyRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import java.util.List;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
 public class CompanyRepositoryTest {

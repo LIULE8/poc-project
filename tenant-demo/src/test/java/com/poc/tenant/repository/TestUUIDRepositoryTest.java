@@ -1,16 +1,15 @@
 package com.poc.tenant.repository;
 
-import com.poc.tenant.model.TestUUID;
+import com.leo.model.tenant.entity.TestUUID;
+import com.leo.model.tenant.repository.TestUUIDRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
 public class TestUUIDRepositoryTest {
